@@ -6,12 +6,15 @@ A chatbot is a software application used to conduct an on-line chat conversation
 ## Structure
 ```bash
 .
+├── assets
+│   └── img
+│       └── bot0.png
 ├── css
-│   ├── index.css
-│   └── reset.css
+│   ├── index.css
+│   └── reset.css
 ├── index.html
 ├── js
-│   └── index.js
+│   └── index.js
 └── README.md
 ```
 ## Interface
