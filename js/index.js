@@ -59,11 +59,11 @@ function counterBot(id){
 function botTest(inputVal) {
   switch (inputVal){
     case bot[0].action : 
-      // Increment the counter
       var counter = bot[0].id;
-      counterBot(counter);
+      counterBot(counter); // Increment the counter
 
       randomRoll = Math.floor((Math.random()*99));
-      return randomRoll;
+      response = "Your random number is " + randomRoll;
+      return [0, response];
   }
 }
