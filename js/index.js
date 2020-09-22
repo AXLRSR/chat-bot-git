@@ -79,6 +79,12 @@ function sendResponse(response) {
   var id = response[0];
   var message = response[1];
 
+  var date = new Date();
+  var dd = String(date.getDate()).padStart(2, '0');
+  var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = date.getFullYear();
+  date = dd + '/' + mm + '/' + yyyy;
+
   var tchat = document.querySelector(".tchat");
 
   var newTchatReceived = document.createElement("div"); 
@@ -89,7 +95,7 @@ function sendResponse(response) {
       <img src="./assets/img/bot`+ bot[id].id +`.png" alt="bot">
     </div>
     <span class="tchat__received__name">`+ bot[id].name +`</span>
-    <span class="tchat__received__date">Date</span>
+    <span class="tchat__received__date">`+date+`</span>
   </div>
   <p class="tchat__received__message">`+message+`</p>`;
 
