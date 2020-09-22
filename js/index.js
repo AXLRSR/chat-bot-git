@@ -63,9 +63,20 @@ function counterBot(id){
 // Test if the message sent is a bot action and send the corresponding message
 function botTest(inputVal) {
   switch (inputVal){
+    case bot[0].action : 
+      var counter = bot[0].id;
+      counterBot(counter); // Increment the counter
+
+      var commands = "";
+      for (let i = 0; i < bot.length; i++) {
+        commands += "<br/>"+bot[i].action ;
+      }
+      response = "List of usable commands:" + commands;
+      return [0, response];
+    
     case bot[1].action : 
       var counter = bot[1].id;
-      counterBot(counter); // Increment the counter
+      counterBot(counter);
 
       randomRoll = Math.floor((Math.random()*99));
       response = "Your random number is " + randomRoll;
@@ -85,7 +96,7 @@ function botTest(inputVal) {
     default:
       var counter = bot[0].id;
       counterBot(counter);
-      response = "This command doesn't exist.";
+      response = "This command doesn't exist. Try " + bot[0].action;
       return [0, response];
   }
 }
