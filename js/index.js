@@ -44,7 +44,8 @@ function sendMessage(){
   
   tchat.prepend(newTchatSend); // Insert it into the html (display the message)
 
-  botTest(inputVal);
+  var response = botTest(inputVal);
+  sendResponse(response);
 
   document.getElementById('message').value = ''; // Reset the input
 }
@@ -74,4 +75,26 @@ function botTest(inputVal) {
       response = "This command doesn't exist.";
       return [0, response];
   }
+}
+
+// Display the response of the bot
+function sendResponse(response) {
+  var id = response[0];
+  var message = response[1];
+
+  var tchat = document.querySelector(".tchat");
+
+  var newTchatReceived = document.createElement("div"); 
+  newTchatReceived.className = "tchat__received";
+
+  newTchatReceived.innerHTML += `<div class="tchat__received__top">
+    <div class="tchat__received__picture">
+      <img src="./assets/img/bot`+ bot[id].id +`.png" alt="bot">
+    </div>
+    <span class="tchat__received__name">`+ bot[id].name +`</span>
+    <span class="tchat__received__date">Date</span>
+  </div>
+  <p class="tchat__received__message">`+message+`</p>`;
+
+  tchat.prepend(newTchatReceived);
 }
