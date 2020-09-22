@@ -12,6 +12,10 @@ var bot = [{
   id: 1,
   name: 'BOT Roll',
 	action: '/roll'
+},{
+  id: 2,
+  name: 'BOT Time',
+	action: '/time'
 }];
 
 // Display all the bots in the contact list
@@ -66,6 +70,18 @@ function botTest(inputVal) {
       randomRoll = Math.floor((Math.random()*99));
       response = "Your random number is " + randomRoll;
       return [1, response];
+
+    case bot[2].action : 
+      var counter = bot[2].id;
+      counterBot(counter);
+
+      var time = new Date();
+      var hh = String(time.getHours()).padStart(2, '0');
+      var mm = String(time.getMinutes()).padStart(2, '0');
+      time = hh + ':' + mm;
+      response = "It is " + time;
+      return [2, response];
+
     default:
       var counter = bot[0].id;
       counterBot(counter);
