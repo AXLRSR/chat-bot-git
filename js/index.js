@@ -35,12 +35,9 @@ function sendMessage(){
   var tchat = document.getElementById("tchat");
 
   var newTchatSend = document.createElement("div"); 
-  newTchatSend.className = "tchat__send"; // Create a new div and give it the class "tchat__send"
-  var newTchatSendMessage = document.createElement("p");
-  newTchatSendMessage.className = "tchat__send__message"; // Create a new p and give it the class "tchat__send__message"
+  newTchatSend.className = "tchat__send";
 
-  newTchatSendMessage.innerHTML += inputVal;
-  newTchatSend.prepend(newTchatSendMessage); // Assemble the new elements
+  newTchatSend.innerHTML += `<p class="tchat__send__message">`+inputVal+`</p>`;
   
   tchat.prepend(newTchatSend); // Insert it into the html (display the message)
 
