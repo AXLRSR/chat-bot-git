@@ -6,9 +6,12 @@ document.getElementById("form").addEventListener("click", function(event){
 // List of bots
 var bot = [{
   id: 0,
+  name: 'BOT Help',
+	action: '/help'
+},{
+  id: 1,
   name: 'BOT Roll',
-	action: '/roll',
-  counter: 0
+	action: '/roll'
 }];
 
 // Display all the bots in the contact list
@@ -58,12 +61,17 @@ function counterBot(id){
 // Test if the message sent is a bot action and send the corresponding message
 function botTest(inputVal) {
   switch (inputVal){
-    case bot[0].action : 
-      var counter = bot[0].id;
+    case bot[1].action : 
+      var counter = bot[1].id;
       counterBot(counter); // Increment the counter
 
       randomRoll = Math.floor((Math.random()*99));
       response = "Your random number is " + randomRoll;
+      return [1, response];
+    default:
+      var counter = bot[0].id;
+      counterBot(counter);
+      response = "This command doesn't exist.";
       return [0, response];
   }
 }
