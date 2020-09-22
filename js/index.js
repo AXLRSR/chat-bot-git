@@ -1,5 +1,5 @@
 // Disable the refresh on submit
-document.getElementById("form").addEventListener("click", function(event){
+document.querySelector("form").addEventListener("click", function(event){
   event.preventDefault()
 });
 
@@ -32,7 +32,7 @@ document.onload = displayBot();
 
 function sendMessage(){
   var inputVal = document.getElementById("message").value; // Retrieve the user input
-  var tchat = document.getElementById("tchat");
+  var tchat = document.querySelector(".tchat");
 
   var newTchatSend = document.createElement("div"); 
   newTchatSend.className = "tchat__send";
